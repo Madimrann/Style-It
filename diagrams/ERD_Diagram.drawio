@@ -1,0 +1,231 @@
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="5.0" version="21.0.0" etag="erd-diagram" type="device">
+  <diagram name="Entity Relationship Diagram" id="erd-diagram">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- USERS Entity -->
+        <mxCell id="users-entity" value="USERS" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="users-id" value="_id (PK)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="users-entity">
+          <mxGeometry x="10" y="40" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="users-email" value="email (String, Unique)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="users-entity">
+          <mxGeometry x="10" y="65" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="users-password" value="password (String, Hashed)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="users-entity">
+          <mxGeometry x="10" y="90" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="users-name" value="name (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="users-entity">
+          <mxGeometry x="10" y="115" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="users-role" value="role (String, Enum)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="users-entity">
+          <mxGeometry x="10" y="140" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="users-created" value="createdAt (Date)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="users-entity">
+          <mxGeometry x="10" y="165" width="180" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- WARDROBE_ITEMS Entity -->
+        <mxCell id="wardrobe-entity" value="WARDROBE_ITEMS" style="swimlane;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=14;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="240" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="wardrobe-id" value="_id (PK)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="wardrobe-entity">
+          <mxGeometry x="10" y="40" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wardrobe-user" value="user (FK → Users)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" vertex="1" parent="wardrobe-entity">
+          <mxGeometry x="10" y="65" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wardrobe-name" value="name (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="wardrobe-entity">
+          <mxGeometry x="10" y="90" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wardrobe-category" value="category (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="wardrobe-entity">
+          <mxGeometry x="10" y="115" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wardrobe-image" value="image (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="wardrobe-entity">
+          <mxGeometry x="10" y="140" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wardrobe-tags" value="tags (Array[String])" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="wardrobe-entity">
+          <mxGeometry x="10" y="165" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wardrobe-occasion" value="occasionTags (Array[String])" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="wardrobe-entity">
+          <mxGeometry x="10" y="190" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wardrobe-color" value="color (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="wardrobe-entity">
+          <mxGeometry x="10" y="215" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wardrobe-description" value="description (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="wardrobe-entity">
+          <mxGeometry x="10" y="240" width="220" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- OUTFITS Entity -->
+        <mxCell id="outfits-entity" value="OUTFITS" style="swimlane;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="400" y="420" width="240" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="outfits-id" value="_id (PK)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="outfits-entity">
+          <mxGeometry x="10" y="40" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="outfits-user" value="user (FK → Users)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" vertex="1" parent="outfits-entity">
+          <mxGeometry x="10" y="65" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="outfits-name" value="name (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="outfits-entity">
+          <mxGeometry x="10" y="90" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="outfits-items" value="items (Array[Object])" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="outfits-entity">
+          <mxGeometry x="10" y="115" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="outfits-occasion" value="occasion (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="outfits-entity">
+          <mxGeometry x="10" y="140" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="outfits-created" value="createdAt (Date)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="outfits-entity">
+          <mxGeometry x="10" y="165" width="220" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- PLANNED_OUTFITS Entity -->
+        <mxCell id="planned-entity" value="PLANNED_OUTFITS" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=14;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="400" y="700" width="240" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="planned-id" value="_id (PK)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="planned-entity">
+          <mxGeometry x="10" y="40" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="planned-user" value="user (FK → Users)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" vertex="1" parent="planned-entity">
+          <mxGeometry x="10" y="65" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="planned-date" value="date (Date)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="planned-entity">
+          <mxGeometry x="10" y="90" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="planned-outfit" value="outfit (FK → Outfits)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" vertex="1" parent="planned-entity">
+          <mxGeometry x="10" y="115" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="planned-name" value="name (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="planned-entity">
+          <mxGeometry x="10" y="140" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="planned-items" value="items (Array[Object])" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="planned-entity">
+          <mxGeometry x="10" y="165" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="planned-notes" value="notes (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="planned-entity">
+          <mxGeometry x="10" y="190" width="220" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- CATEGORIES Entity -->
+        <mxCell id="categories-entity" value="CATEGORIES" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=14;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="800" y="80" width="220" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="categories-id" value="_id (PK)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="categories-entity">
+          <mxGeometry x="10" y="40" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="categories-id-field" value="id (String, Unique)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="categories-entity">
+          <mxGeometry x="10" y="65" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="categories-label" value="label (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="categories-entity">
+          <mxGeometry x="10" y="90" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="categories-color" value="color (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="categories-entity">
+          <mxGeometry x="10" y="115" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="categories-order" value="order (Number)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="categories-entity">
+          <mxGeometry x="10" y="140" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="categories-keywords" value="keywords (Array[String])" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="categories-entity">
+          <mxGeometry x="10" y="165" width="200" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- OCCASIONS Entity -->
+        <mxCell id="occasions-entity" value="OCCASIONS" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=14;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="800" y="360" width="220" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="occasions-id" value="_id (PK)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="occasions-entity">
+          <mxGeometry x="10" y="40" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="occasions-id-field" value="id (String, Unique)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="occasions-entity">
+          <mxGeometry x="10" y="65" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="occasions-label" value="label (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="occasions-entity">
+          <mxGeometry x="10" y="90" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="occasions-color" value="color (String)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="occasions-entity">
+          <mxGeometry x="10" y="115" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="occasions-order" value="order (Number)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="occasions-entity">
+          <mxGeometry x="10" y="140" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="occasions-keywords" value="keywords (Array[String])" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="occasions-entity">
+          <mxGeometry x="10" y="165" width="200" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Relationships -->
+        <!-- Users to WardrobeItems (1 to Many) -->
+        <mxCell id="rel-users-wardrobe" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="180" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-wardrobe-users" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="350" y="180" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-users-wardrobe" value="" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="users-entity" target="wardrobe-entity">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="500" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label-users-wardrobe" value="has" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="200" width="60" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Users to Outfits (1 to Many) -->
+        <mxCell id="rel-users-outfits-1" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="480" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-users-outfits-N" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="350" y="480" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-users-outfits" value="" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="users-entity" target="outfits-entity">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="400" y="600" as="sourcePoint" />
+            <mxPoint x="500" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label-users-outfits" value="has" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="500" width="60" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Users to PlannedOutfits (1 to Many) -->
+        <mxCell id="rel-users-planned-1" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="800" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-users-planned-N" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="350" y="800" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-users-planned" value="" style="endArrow=ERmany;startArrow=ERone;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="users-entity" target="planned-entity">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="400" y="900" as="sourcePoint" />
+            <mxPoint x="500" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label-users-planned" value="has" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="820" width="60" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Outfits to PlannedOutfits (1 to 0..1, Optional) -->
+        <mxCell id="rel-outfits-planned-1" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="500" y="620" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-outfits-planned-01" value="0..1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="550" y="620" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-outfits-planned" value="" style="endArrow=ERzeroToOne;startArrow=ERone;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="outfits-entity" target="planned-entity">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="600" y="700" as="sourcePoint" />
+            <mxPoint x="700" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label-outfits-planned" value="optional reference" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="510" y="640" width="100" height="20" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+

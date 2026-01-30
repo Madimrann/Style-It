@@ -1,0 +1,91 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+.logo-image {
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+.logo-text {
+  font-family: 'Bungee', 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.logo-word-style {
+  color: #8B9DC3;
+  text-shadow: 0 0 12px rgba(139, 157, 195, 0.45);
+}
+
+.logo-word-it {
+  color: #111827;
+  text-shadow: none;
+}
+
+.logo-container:hover .logo-text {
+  filter: brightness(1.2);
+}
+
+.logo-container:hover .logo-word-style {
+  text-shadow: 0 0 25px rgba(139, 157, 195, 0.6);
+}
+
+.logo-container:hover .logo-word-it {
+  color: #374151;
+}
+
+/* Size Variants */
+.logo-small .logo-image {
+  max-height: 40px;
+}
+
+.logo-medium .logo-image {
+  max-height: 50px;
+}
+
+.logo-large .logo-image {
+  max-height: 100px;
+}
+
+.logo-small .logo-text {
+  font-size: 20px;
+}
+
+.logo-medium .logo-text {
+  font-size: 28px;
+}
+
+.logo-large .logo-text {
+  font-size: 48px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .logo-medium .logo-image {
+    max-height: 45px;
+  }
+  
+  .logo-medium .logo-text {
+    font-size: 24px;
+  }
+}
+

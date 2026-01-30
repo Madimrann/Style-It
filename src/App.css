@@ -1,0 +1,135 @@
+.App {
+  min-height: 100vh;
+  background: #f5fcff; /* match soft body background */
+}
+
+.main-content {
+  margin-top: 80px; /* Account for fixed navbar */
+  min-height: calc(100vh - 80px);
+  padding-top: 20px;
+  overflow-x: hidden;
+  background: #f5fcff; /* match body background */
+}
+
+.main-content.home-page {
+  padding-top: 0;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+}
+
+.main-content.planner-page {
+  padding-top: 0;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+}
+
+.main-content.outfits-page {
+  padding-top: 0;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main-content.wardrobe-page {
+  padding-top: 0;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main-content.upload-page {
+  padding-top: 0;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main-content.login-page {
+  padding-top: 0;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main-content.signup-page {
+  padding-top: 0;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 70px; /* Account for fixed navbar on mobile */
+    padding-top: 10px;
+    min-height: calc(100vh - 70px);
+  }
+
+  .main-content.home-page {
+    padding-top: 0;
+    height: calc(100vh - 70px);
+  }
+
+  .main-content.planner-page {
+    padding-top: 0;
+    height: calc(100vh - 70px);
+  }
+
+  .main-content.outfits-page {
+    padding-top: 0;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .main-content.wardrobe-page {
+    padding-top: 0;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .main-content.upload-page {
+    padding-top: 0;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .main-content.login-page {
+    padding-top: 0;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .main-content.signup-page {
+    padding-top: 0;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding-top: 5px;
+  }
+}
+
+/* Spinner for loading states */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #a5b4fc; /* softer lavender accent */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

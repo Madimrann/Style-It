@@ -1,0 +1,135 @@
+SYSTEM ARCHITECTURE DIAGRAM - StyleIt
+========================================
+
+┌─────────────────────────────────────────────────────────────────┐
+│                         CLIENT LAYER                             │
+│                                                                   │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐         │
+│  │   Browser 1  │  │   Browser 2  │  │   Browser N   │         │
+│  │  (Chrome)    │  │  (Firefox)   │  │  (Safari)    │         │
+│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘         │
+│         │                  │                  │                  │
+└─────────┼──────────────────┼──────────────────┼──────────────────┘
+          │                  │                  │
+          │  HTTP/HTTPS      │                  │
+          │                  │                  │
+          └──────────────────┴──────────────────┘
+                             │
+                             │
+┌────────────────────────────┴────────────────────────────────────┐
+│                    PRESENTATION LAYER                            │
+│                                                                   │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │              React.js Frontend Application                 │  │
+│  │                                                            │  │
+│  │  ┌────────────┐  ┌────────────┐  ┌────────────┐         │  │
+│  │  │   Pages    │  │ Components │  │  Services  │         │  │
+│  │  │            │  │            │  │            │         │  │
+│  │  │ - Home     │  │ - Navbar   │  │ - ApiService│         │  │
+│  │  │ - Login    │  │ - Protected│  │            │         │  │
+│  │  │ - Wardrobe │  │   Route    │  │            │         │  │
+│  │  │ - Upload   │  │            │  │            │         │  │
+│  │  │ - Outfits  │  │            │  │            │         │  │
+│  │  │ - Planner  │  │            │  │            │         │  │
+│  │  │ - Profile  │  │            │  │            │         │  │
+│  │  │ - Admin    │  │            │  │            │         │  │
+│  │  └────────────┘  └────────────┘  └────────────┘         │  │
+│  │                                                            │  │
+│  │  ┌──────────────────────────────────────────────────────┐ │  │
+│  │  │              React Router                            │ │  │
+│  │  │              AuthContext (JWT)                        │ │  │
+│  │  └──────────────────────────────────────────────────────┘ │  │
+│  └──────────────────────────────────────────────────────────┘  │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             │ REST API (HTTP/HTTPS)
+                             │
+┌────────────────────────────┴────────────────────────────────────┐
+│                    APPLICATION LAYER                             │
+│                                                                   │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │         Node.js + Express.js Backend Server               │  │
+│  │                                                            │  │
+│  │  ┌────────────────────────────────────────────────────┐  │  │
+│  │  │           API Gateway / Middleware                   │  │  │
+│  │  │  - CORS                                             │  │  │
+│  │  │  - Body Parser                                     │  │  │
+│  │  │  - Authentication (JWT)                            │  │  │
+│  │  │  - Error Handling                                  │  │  │
+│  │  └────────────────────────────────────────────────────┘  │  │
+│  │                                                            │  │
+│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │  │
+│  │  │ Auth Service │  │ Image Service│  │ Outfit Service│  │  │
+│  │  │              │  │              │  │              │  │  │
+│  │  │ - Signup     │  │ - Upload     │  │ - Recommend  │  │  │
+│  │  │ - Login      │  │ - Analysis   │  │ - Save       │  │  │
+│  │  │ - JWT        │  │ - Categorize │  │ - Manage     │  │  │
+│  │  └──────────────┘  └──────┬───────┘  └──────────────┘  │  │
+│  │                           │                             │  │
+│  │  ┌──────────────┐  ┌──────┴───────┐  ┌──────────────┐  │  │
+│  │  │Wardrobe      │  │  Calendar    │  │ Admin        │  │  │
+│  │  │Service       │  │  Service     │  │ Service      │  │  │
+│  │  │              │  │              │  │              │  │  │
+│  │  │ - CRUD       │  │ - Plan       │  │ - Users      │  │  │
+│  │  │ - Filter     │  │ - View       │  │ - Categories │  │  │
+│  │  │ - Search     │  │ - Delete     │  │ - Occasions  │  │  │
+│  │  └──────────────┘  └──────────────┘  └──────────────┘  │  │
+│  └──────────────────────────────────────────────────────────┘  │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             │
+          ┌───────────────────┴───────────────────┐
+          │                                       │
+          │                                       │
+┌─────────┴──────────┐              ┌─────────────┴──────────────┐
+│   DATA LAYER       │              │   EXTERNAL SERVICES        │
+│                    │              │                            │
+│  ┌──────────────┐  │              │  ┌──────────────────────┐ │
+│  │   MongoDB    │  │              │  │  Google Vision API   │ │
+│  │   Database   │  │              │  │                      │ │
+│  │              │  │              │  │  - Object Detection   │ │
+│  │ Collections: │  │              │  │  - Label Detection   │ │
+│  │ - Users      │  │              │  │  - Image Analysis    │ │
+│  │ - Wardrobe   │  │              │  └──────────────────────┘ │
+│  │ - Outfits    │  │              │                            │
+│  │ - Planned    │  │              │                            │
+│  │ - Categories │  │              │                            │
+│  │ - Occasions  │  │              │                            │
+│  └──────────────┘  │              │                            │
+│                    │              │                            │
+│  ┌──────────────┐  │              │                            │
+│  │ File Storage │  │              │                            │
+│  │ (uploads/)   │  │              │                            │
+│  │              │  │              │                            │
+│  │ - Images     │  │              │                            │
+│  │ - Static     │  │              │                            │
+│  └──────────────┘  │              │                            │
+└────────────────────┘              └────────────────────────────┘
+
+DATA FLOW:
+----------
+1. User interacts with React frontend
+2. Frontend makes API call via Axios
+3. Express backend processes request
+4. Backend queries MongoDB or calls external API
+5. Response sent back to frontend
+6. Frontend updates UI
+
+AUTHENTICATION FLOW:
+--------------------
+1. User submits credentials
+2. Backend validates and hashes password
+3. JWT token generated
+4. Token stored in localStorage
+5. Token included in API requests
+6. Middleware verifies token
+
+IMAGE ANALYSIS FLOW:
+--------------------
+1. User uploads image
+2. Image converted to base64
+3. Sent to Google Vision API
+4. AI analysis results processed
+5. Category and occasion matched
+6. Item saved to MongoDB
+

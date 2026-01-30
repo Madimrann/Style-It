@@ -1,0 +1,254 @@
+SEQUENCE DIAGRAMS - StyleIt System
+====================================
+
+1. USER REGISTRATION SEQUENCE
+───────────────────────────────
+
+User          Frontend          Backend          MongoDB
+ │                │                 │                │
+ │ 1. Fill form   │                 │                │
+ │───────────────>│                 │                │
+ │                │                 │                │
+ │                │ 2. POST /api/   │                │
+ │                │    auth/signup  │                │
+ │                │────────────────>│                │
+ │                │                 │                │
+ │                │                 │ 3. Check if    │
+ │                │                 │    email exists│
+ │                │                 │──────────────>│
+ │                │                 │                │
+ │                │                 │ 4. Hash       │
+ │                │                 │    password   │
+ │                │                 │                │
+ │                │                 │ 5. Create user │
+ │                │                 │──────────────>│
+ │                │                 │                │
+ │                │                 │ 6. Generate   │
+ │                │                 │    JWT token  │
+ │                │                 │                │
+ │                │ 7. Return token │                │
+ │                │    and user     │                │
+ │                │<────────────────│                │
+ │                │                 │                │
+ │ 8. Store token │                 │                │
+ │    in localStorage              │                │
+ │<───────────────│                 │                │
+ │                │                 │                │
+ │ 9. Redirect to │                 │                │
+ │    home/wardrobe                │                │
+ │<───────────────│                 │                │
+
+
+2. IMAGE UPLOAD AND ANALYSIS SEQUENCE
+──────────────────────────────────────
+
+User          Frontend          Backend       Google Vision    MongoDB
+ │                │                 │              │              │
+ │ 1. Select image│                 │              │              │
+ │───────────────>│                 │              │              │
+ │                │                 │              │              │
+ │                │ 2. Convert to   │              │              │
+ │                │    base64      │              │              │
+ │                │                 │              │              │
+ │                │ 3. POST /api/  │              │              │
+ │                │    analyze-image│              │              │
+ │                │────────────────>│              │              │
+ │                │                 │              │              │
+ │                │                 │ 4. Call      │              │
+ │                │                 │    Vision API│              │
+ │                │                 │─────────────>│              │
+ │                │                 │              │              │
+ │                │                 │              │ 5. Analyze   │
+ │                │                 │              │    image    │
+ │                │                 │              │              │
+ │                │                 │ 6. Return    │              │
+ │                │                 │    results  │              │
+ │                │                 │<─────────────│              │
+ │                │                 │              │              │
+ │                │                 │ 7. Process   │              │
+ │                │                 │    results: │              │
+ │                │                 │    - Match  │              │
+ │                │                 │      category│              │
+ │                │                 │    - Detect │              │
+ │                │                 │      occasions│              │
+ │                │                 │    - Extract │              │
+ │                │                 │      colors  │              │
+ │                │                 │              │              │
+ │                │                 │ 8. Load      │              │
+ │                │                 │    categories│              │
+ │                │                 │─────────────>│              │
+ │                │                 │              │              │
+ │                │                 │ 9. Return   │              │
+ │                │                 │    categories│              │
+ │                │                 │<─────────────│              │
+ │                │                 │              │              │
+ │                │ 10. Display     │              │              │
+ │                │     analysis    │              │              │
+ │                │     results     │              │              │
+ │<───────────────│                 │              │              │
+ │                │                 │              │              │
+ │ 11. Review and │                 │              │              │
+ │     edit if    │                 │              │              │
+ │     needed     │                 │              │              │
+ │───────────────>│                 │              │              │
+ │                │                 │              │              │
+ │ 12. Confirm    │                 │              │              │
+ │───────────────>│                 │              │              │
+ │                │                 │              │              │
+ │                │ 13. POST /api/  │              │              │
+ │                │     wardrobe    │              │              │
+ │                │────────────────>│              │              │
+ │                │                 │              │              │
+ │                │                 │ 14. Save     │              │
+ │                │                 │     image   │              │
+ │                │                 │     file    │              │
+ │                │                 │              │              │
+ │                │                 │ 15. Create   │              │
+ │                │                 │     wardrobe │              │
+ │                │                 │     item    │              │
+ │                │                 │─────────────>│              │
+ │                │                 │              │              │
+ │                │ 16. Return     │              │              │
+ │                │     saved item │              │              │
+ │                │<────────────────│              │              │
+ │                │                 │              │              │
+ │ 17. Success    │                 │              │              │
+ │     message    │                 │              │              │
+ │<───────────────│                 │              │              │
+
+
+3. OUTFIT RECOMMENDATION SEQUENCE
+───────────────────────────────────
+
+User          Frontend          Backend          MongoDB
+ │                │                 │                │
+ │ 1. Select      │                 │                │
+ │    occasion   │                 │                │
+ │───────────────>│                 │                │
+ │                │                 │                │
+ │ 2. Click       │                 │                │
+ │    "Style It" │                 │                │
+ │───────────────>│                 │                │
+ │                │                 │                │
+ │                │ 3. GET /api/    │                │
+ │                │    recommend-   │                │
+ │                │    outfit/:     │                │
+ │                │    occasion     │                │
+ │                │────────────────>│                │
+ │                │                 │                │
+ │                │                 │ 4. Get user's │
+ │                │                 │    wardrobe   │
+ │                │                 │    items     │
+ │                │                 │──────────────>│
+ │                │                 │                │
+ │                │                 │ 5. Filter by  │
+ │                │                 │    occasion   │
+ │                │                 │    tags      │
+ │                │                 │                │
+ │                │                 │ 6. Group by  │
+ │                │                 │    category: │
+ │                │                 │    - Tops    │
+ │                │                 │    - Bottoms │
+ │                │                 │    - Shoes   │
+ │                │                 │    - Outerwear│
+ │                │                 │    - Accessories│
+ │                │                 │                │
+ │                │                 │ 7. Randomly  │
+ │                │                 │    select    │
+ │                │                 │    items    │
+ │                │                 │                │
+ │                │                 │ 8. Check for │
+ │                │                 │    duplicates│
+ │                │                 │──────────────>│
+ │                │                 │                │
+ │                │                 │ 9. Generate  │
+ │                │                 │    styling   │
+ │                │                 │    tips     │
+ │                │                 │                │
+ │                │ 10. Return      │                │
+ │                │     recommended │                │
+ │                │     outfit     │                │
+ │                │<────────────────│                │
+ │                │                 │                │
+ │ 11. Display    │                 │                │
+ │     outfit    │                 │                │
+ │     recommendation               │                │
+ │<───────────────│                 │                │
+ │                │                 │                │
+ │ 12. Option to  │                 │                │
+ │     save outfit│                 │                │
+ │───────────────>│                 │                │
+ │                │                 │                │
+ │                │ 13. POST /api/  │                │
+ │                │     outfits     │                │
+ │                │────────────────>│                │
+ │                │                 │                │
+ │                │                 │ 14. Save     │
+ │                │                 │     outfit   │
+ │                │                 │──────────────>│
+ │                │                 │                │
+ │                │ 15. Return      │                │
+ │                │     saved      │                │
+ │                │     outfit     │                │
+ │                │<────────────────│                │
+ │                │                 │                │
+ │ 16. Success    │                 │                │
+ │     message    │                 │                │
+ │<───────────────│                 │                │
+
+
+4. CALENDAR PLANNING SEQUENCE
+──────────────────────────────
+
+User          Frontend          Backend          MongoDB
+ │                │                 │                │
+ │ 1. Click date  │                 │                │
+ │    on calendar│                 │                │
+ │───────────────>│                 │                │
+ │                │                 │                │
+ │                │ 2. Open        │                │
+ │                │    planning    │                │
+ │                │    modal       │                │
+ │                │                 │                │
+ │                │ 3. GET /api/   │                │
+ │                │    wardrobe    │                │
+ │                │────────────────>│                │
+ │                │                 │                │
+ │                │                 │ 4. Get user's │
+ │                │                 │    wardrobe   │
+ │                │                 │    items     │
+ │                │                 │──────────────>│
+ │                │                 │                │
+ │                │ 5. Return      │                │
+ │                │     items     │                │
+ │                │<────────────────│                │
+ │                │                 │                │
+ │ 6. Select      │                 │                │
+ │    items      │                 │                │
+ │───────────────>│                 │                │
+ │                │                 │                │
+ │ 7. Save        │                 │                │
+ │    planned    │                 │                │
+ │    outfit     │                 │                │
+ │───────────────>│                 │                │
+ │                │                 │                │
+ │                │ 8. POST /api/  │                │
+ │                │    planned-    │                │
+ │                │    outfits     │                │
+ │                │────────────────>│                │
+ │                │                 │                │
+ │                │                 │ 9. Create    │
+ │                │                 │     planned   │
+ │                │                 │     outfit   │
+ │                │                 │──────────────>│
+ │                │                 │                │
+ │                │ 10. Return     │                │
+ │                │     planned    │                │
+ │                │     outfit     │                │
+ │                │<────────────────│                │
+ │                │                 │                │
+ │ 11. Update     │                 │                │
+ │     calendar  │                 │                │
+ │     display   │                 │                │
+ │<───────────────│                 │                │
+
