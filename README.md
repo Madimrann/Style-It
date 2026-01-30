@@ -84,10 +84,12 @@ The StyleIt ecosystem is built on a **Microservices-inspired** architecture to h
 </div>
 
 ### Mobile Experience
-<div style="display: flex; gap: 10px; overflow-x: auto;">
-  <img src="docs/screenshots/mobile_home.png" alt="Mobile Home" width="200"/>
-  <img src="docs/screenshots/mobile_wardrobe.png" alt="Mobile Wardrobe" width="200"/>
-  <img src="docs/screenshots/mobile_outfit.png" alt="Mobile Outfit Generator" width="200"/>
+<div style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px;">
+  <img src="docs/screenshots/mobile_home.png" alt="Mobile Home" height="350" style="border-radius: 12px; border: 1px solid #ddd;" />
+  <img src="docs/screenshots/mobile_wardrobe.png" alt="Mobile Wardrobe" height="350" style="border-radius: 12px; border: 1px solid #ddd;" />
+  <img src="docs/screenshots/mobile_outfits_menu.png" alt="Outfit Tools" height="350" style="border-radius: 12px; border: 1px solid #ddd;" />
+  <img src="docs/screenshots/mobile_planner.png" alt="Mobile Planner" height="350" style="border-radius: 12px; border: 1px solid #ddd;" />
+  <img src="docs/screenshots/mobile_profile.png" alt="Mobile Profile" height="350" style="border-radius: 12px; border: 1px solid #ddd;" />
 </div>
 
 ## 🏁 Getting Started
