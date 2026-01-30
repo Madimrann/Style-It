@@ -73,9 +73,12 @@ The StyleIt ecosystem is built on a **Microservices-inspired** architecture to h
 ## 📸 Screenshots
 
 ### Web Interface
-<div style="display: flex; gap: 10px; overflow-x: auto; margin-bottom: 20px;">
-  <img src="docs/screenshots/web_dashboard.png" alt="Web Dashboard" width="45%"/>
-  <img src="docs/screenshots/web_upload.png" alt="AI Upload Analysis" width="45%"/>
+<div style="display: flex; gap: 10px; overflow-x: auto; margin-bottom: 20px; padding-bottom: 10px;">
+  <img src="docs/screenshots/web_home.png" alt="Home Dashboard" height="200" style="border-radius: 8px; border: 1px solid #ddd;" />
+  <img src="docs/screenshots/web_wardrobe.png" alt="My Wardrobe" height="200" style="border-radius: 8px; border: 1px solid #ddd;" />
+  <img src="docs/screenshots/web_upload.png" alt="Smart Upload" height="200" style="border-radius: 8px; border: 1px solid #ddd;" />
+  <img src="docs/screenshots/web_outfits.png" alt="Outfit Recommendations" height="200" style="border-radius: 8px; border: 1px solid #ddd;" />
+  <img src="docs/screenshots/web_planner.png" alt="Outfit Planner" height="200" style="border-radius: 8px; border: 1px solid #ddd;" />
 </div>
 
 ### Mobile Experience
