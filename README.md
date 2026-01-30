@@ -79,6 +79,8 @@ The StyleIt ecosystem is built on a **Microservices-inspired** architecture to h
   <img src="docs/screenshots/web_upload.png" alt="Smart Upload" height="200" style="border-radius: 8px; border: 1px solid #ddd;" />
   <img src="docs/screenshots/web_outfits.png" alt="Outfit Recommendations" height="200" style="border-radius: 8px; border: 1px solid #ddd;" />
   <img src="docs/screenshots/web_planner.png" alt="Outfit Planner" height="200" style="border-radius: 8px; border: 1px solid #ddd;" />
+  <img src="docs/screenshots/web_profile.png" alt="User Profile" height="200" style="border-radius: 8px; border: 1px solid #ddd;" />
+  <img src="docs/screenshots/web_admin.png" alt="Admin Dashboard" height="200" style="border-radius: 8px; border: 1px solid #ddd;" />
 </div>
 
 ### Mobile Experience
